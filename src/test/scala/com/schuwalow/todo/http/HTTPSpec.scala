@@ -25,7 +25,7 @@ object HTTPSpec {
       actual <- actual
       bodyResult <- expectedBody
                      .fold[RIO[R, TestResult]](
-                       assertM(actual.bodyAsText.compile.toVector)(isEmpty)
+                       assertM(actual.bodyText.compile.toVector)(isEmpty)
                      )(
                        expected => assertM(actual.as[A])(equalTo(expected))
                      )
@@ -38,5 +38,4 @@ object HTTPSpec {
     expectedBody: String
   ): RIO[R, TestResult] =
     checkRequest(actual, expectedStatus, Some(expectedBody))
-
 }

@@ -2,7 +2,7 @@ package com.schuwalow.todo
 
 import zio.ZLayer
 import zio.blocking.Blocking
-import zio.logging.Logging.Logging
+import zio.logging.Logging
 import zio.logging.slf4j.Slf4jLogger
 
 import com.schuwalow.todo.config.AppConfigProvider
@@ -11,7 +11,7 @@ import com.schuwalow.todo.config.DbConfigProvider
 import com.schuwalow.todo.repository.DoobieTodoRepository
 import com.schuwalow.todo.repository.TodoRepository
 
-object Layers {
+object layers {
 
   type Layer0Env =
     ConfigProvider with Logging with Blocking
